@@ -14,11 +14,15 @@ class PersonPage extends Component {
   }
 
   componentDidMount() {
-    this.initPersonPage()
+    this.sendPersonLocation()
   }
 
-  initPersonPage = () => {
-    _helper.getCurrentLocation()
+  sendPersonLocation = () => {
+    _helper.getCurrentLocation(
+      (position) => {
+        console.log('hello', position)
+      }
+    )
   }
 
   render() {

@@ -9,11 +9,15 @@ function getCurrentLocation(successCb, errorCb) {
         enableHighAccuracy: false,
         timeout: 5000,
         maximumAge: 0,
+        distanceFilter: 1
       };
       positionId = navigator.geolocation.watchPosition(
         (position) => {
+          console.log('action 1')
           successCb(position)
-          navigator.geolocation.clearWatch(positionId);
+          console.log('action 2')
+          // navigator.geolocation.clearWatch(positionId);
+          console.log('action 3')
         }, errorCb, options)
     }
   }
